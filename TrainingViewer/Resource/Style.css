@@ -1,0 +1,12 @@
+QHeaderView{
+background-color: rgb(255, 255, 255);
+}
+
+QHeaderView::section{
+background-color: rgb(220, 220, 220);
+font: 10pt "Segoe UI";
+}
+
+QTableWidget{
+font: 10pt "Segoe UI";
+}

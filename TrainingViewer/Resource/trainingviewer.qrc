@@ -1,0 +1,6 @@
+<RCC>
+    <qresource lang="Russian" prefix="/">
+        <file>Style.css</file>
+        <file>Config.json</file>
+    </qresource>
+</RCC>
