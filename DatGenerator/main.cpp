@@ -1,8 +1,7 @@
-#include <QCoreApplication>
 #include <QFile>
+#include <QDir>
 #include <QDataStream>
 #include <iostream>
-#include <QMessageBox>
 #ifdef Q_OS_WIN
   #include <windows.h>
 #endif
@@ -39,13 +38,14 @@ int main()
   // Резервирует память под количество тренировочных дней
   vecTrainingWeek.resize(sCountDays);
 
+  // Фактический путь к сохранённому файлу - папка с исходниками
+  QString strFilePath = QString(SOURCE_DIR) + "/TrainingWeek%1.dat";
+  strFilePath = strFilePath.arg(sCountDays);
+
   // Создаем файл
-  QFile file("TrainingWeek1.dat");
+  QFile file(strFilePath);
   if (!file.open(QIODevice::WriteOnly)) {
-    QMessageBox::warning(nullptr,
-                         "Ошибка!",
-                         "Не удалось создать файл",
-                         QMessageBox::Ok);
+    std::cout << "Не удалось создать файл" << std::flush;
     return 1;
   }
   // Создаем поток вывода в файл
